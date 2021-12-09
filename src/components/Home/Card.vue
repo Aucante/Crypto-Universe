@@ -1,20 +1,172 @@
 <template>
-  <v-card class="mx-auto" max-width="344">
-    <v-card-text>
-      <div>Word of the Day</div>
-      <p class="text-h4 text--primary">be•nev•o•lent</p>
-      <p>adjective</p>
-      <div class="text--primary">
-        well meaning and kindly.<br />
-        "a benevolent smile"
-      </div>
-    </v-card-text>
-    <v-card-actions>
-      <v-btn text color="deep-purple accent-4"> Learn More </v-btn>
-    </v-card-actions>
-  </v-card>
+  <v-row>
+    <v-col
+      cols="10"
+      md="8"
+      lg="6"
+      xl="4"
+      offset="1"
+      offset-md="2"
+      offset-lg="3"
+      offset-xl="4"
+    >
+      <h1 class="white--text font-weight-light">Cryptocurrency</h1>
+      <v-card
+        v-for="(crypto, c) in cryptocurrency"
+        :key="c"
+        class="rounded-0 my-15"
+      >
+        <v-img
+          :aspect-ratio="16 / 9"
+          class="d-flex align-center"
+          src="./../../assets/background/backgroundCard.png"
+        >
+          <v-row>
+            <v-col cols="8">
+              <v-card-text class="ml-5">
+                <p class="text-h5 text-uppercase ml-n2">{{ crypto.name }}</p>
+                <v-row>
+                  <v-col cols="4">
+                    <v-avatar
+                      class="profile mb-8 ml-n2 rounded-lg"
+                      color="grey"
+                      size="90"
+                      tile
+                    >
+                      <v-img :src="crypto.avatar"></v-img>
+                    </v-avatar>
+                  </v-col>
+                  <v-col cols="8">
+                    <div class="text-h2 text--primary mt-4 ml-7">
+                      {{ crypto.code }}
+                    </div>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col cols="6">
+                    <p class="overline mb-n2">Stacking</p>
+                    <p class="overline mb-n2">APR</p>
+                    <p class="overline">Liquidity</p>
+                  </v-col>
+                  <v-col cols="6">
+                    <p class="overline mb-n2">{{ crypto.stacking }} days</p>
+                    <p class="overline mb-n2">{{ crypto.apr }} %</p>
+                    <p class="overline">{{ crypto.liquidity }} $</p>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+              <v-card-actions class="d-flex align-end">
+                <v-btn
+                  color="secondary"
+                  class="white--text rounded-0 ml-7"
+                  @click="openCard"
+                >
+                  {{ btn }}
+                </v-btn>
+              </v-card-actions>
+            </v-col>
+          </v-row>
+        </v-img>
+        <v-expand-transition>
+          <v-card
+            v-if="revealClose"
+            class="transition-fast-in-fast-out v-card--reveal"
+            style="height: 100%"
+          >
+            <v-img
+              :aspect-ratio="16 / 9"
+              class="d-flex align-center"
+              src="./../../assets/background/backgroundCard.png"
+            >
+              <v-row>
+                <v-col cols="8">
+                  <v-card-text class="pb-0">
+                    <p class="text-h4 text--primary pb-10">{{ crypto.name }}</p>
+                    <p>
+                      late 16th century (as a noun denoting a place where alms
+                      were distributed): from medieval Latin eleemosynarius,
+                      from late Latin eleemosyna ‘alms’, from Greek eleēmosunē
+                      ‘compassion’
+                    </p>
+                  </v-card-text>
+                  <v-card-actions class="pt-10 ml-n5">
+                    <v-btn
+                      color="secondary"
+                      class="white--text rounded-0 ml-7"
+                      @click="closeCard"
+                    >
+                      Close
+                    </v-btn>
+                  </v-card-actions>
+                </v-col>
+              </v-row>
+            </v-img>
+          </v-card>
+        </v-expand-transition>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      cryptocurrency: [
+        {
+          id: 1,
+          name: "Solana",
+          code: "SOL",
+          stacking: 30,
+          apr: 9,
+          liquidity: 22000500,
+          avatar: require("./../../assets/avatar/solana.png"),
+        },
+        {
+          id: 2,
+          name: "Ripple",
+          code: "XRP",
+          stacking: 90,
+          apr: 5,
+          liquidity: 43070500,
+          avatar: require("./../../assets/avatar/xrp.jpg"),
+        },
+        {
+          id: 3,
+          name: "Polygon",
+          code: "MATIC",
+          stacking: null,
+          apr: 8,
+          liquidity: 22000500,
+          avatar: require("./../../assets/avatar/matic.jpg"),
+        },
+      ],
+      btn: "Learn More",
+      reveal: false,
+    };
+  },
+  methods: {
+    openCard: function () {
+      this.reveal = true;
+    },
+    closeCard: function () {
+      this.reveal = false;
+    },
+  },
+  computed: {
+    revealClose: function () {
+      return this.reveal;
+    },
+  },
+};
 </script>
+
+
+<style>
+.v-card--reveal {
+  bottom: 0;
+  opacity: 1 !important;
+  position: absolute;
+  width: 100%;
+}
+</style>

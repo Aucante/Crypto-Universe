@@ -13,7 +13,7 @@
       >
         <div>
           <v-app-bar color="#010717" dark outlined>
-            <v-toolbar-title>CRYPTO UNIVERSE</v-toolbar-title>
+            <v-toolbar-title class="text-h5">CRYPTO UNIVERSE</v-toolbar-title>
 
             <v-spacer></v-spacer>
             <v-menu left bottom>
@@ -23,9 +23,13 @@
                 </v-btn>
               </template>
 
-              <v-list>
-                <v-list-item v-for="n in 5" :key="n" @click="() => {}">
-                  <v-list-item-title>Option {{ n }}</v-list-item-title>
+              <v-list tile>
+                <v-list-item
+                  v-for="(option, i) in options"
+                  :key="i"
+                  @click="() => {}"
+                >
+                  <v-list-item-title>{{ option.name }}</v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -35,3 +39,19 @@
     </v-row>
   </nav>
 </template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      options: [
+        { name: "Documentation", link: null },
+        { name: "Stacking", link: null },
+        { name: "Contact", link: null },
+      ],
+    };
+  },
+};
+</script>
+

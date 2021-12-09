@@ -4,7 +4,7 @@
       <v-container fluid class="bg"> <Navbar /></v-container>
       <video-background
         :src="require('./assets/background/backgroundVideo.mp4')"
-        style="max-height: 2000px; height: 100vh"
+        style="max-height: 1097px; height: 100vh"
       >
         <router-view></router-view>
       </video-background>
