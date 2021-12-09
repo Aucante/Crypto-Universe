@@ -10,7 +10,7 @@
       offset-lg="3"
       offset-xl="4"
     >
-      <h1 class="white--text font-weight-light">Cryptocurrency</h1>
+      <h1 class="white--text text-h4 font-weight-light mt-10">STACKING</h1>
       <v-card
         v-for="(crypto, c) in cryptocurrency"
         :key="c"
@@ -69,7 +69,7 @@
         </v-img>
         <v-expand-transition>
           <v-card
-            v-if="revealClose"
+            v-if="reveal"
             class="transition-fast-in-fast-out v-card--reveal"
             style="height: 100%"
           >

@@ -12,8 +12,15 @@
         offset-xl="3"
       >
         <div>
-          <v-app-bar color="#010717" dark outlined>
-            <v-toolbar-title class="text-h5">CRYPTO UNIVERSE</v-toolbar-title>
+          <v-app-bar color="#010717" class="my-15" dark outlined>
+            <v-toolbar-title
+              ><router-link to="/"
+                ><v-img
+                  src="./../assets/logo/logo.png"
+                  height="80"
+                  width="250"
+                ></v-img></router-link
+            ></v-toolbar-title>
 
             <v-spacer></v-spacer>
             <v-menu left bottom>

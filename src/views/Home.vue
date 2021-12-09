@@ -1,15 +1,15 @@
 <template>
-  <Card />
+  <Homepage />
 </template>
 
 <script>
-import Card from "./../components/Home/Card.vue";
+import Homepage from "./../components/Home/Homepage.vue";
 
 export default {
   name: "Home",
 
   components: {
-    Card,
+    Homepage,
   },
 };
 </script>
