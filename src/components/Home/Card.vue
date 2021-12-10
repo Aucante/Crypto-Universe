@@ -2,7 +2,7 @@
   <v-card
     v-scroll.self="onScroll"
     color="transparent"
-    class="overflow-y-auto"
+    class="overflow-y-auto overflow-x-hidden"
     max-height="1150"
   >
     <v-row>
@@ -30,7 +30,9 @@
             <v-row>
               <v-col cols="8">
                 <v-card-text class="ml-5">
-                  <p class="text-h5 text-uppercase ml-n2">{{ crypto.name }}</p>
+                  <p class="text-h5 text-uppercase ml-n2">
+                    {{ crypto.name }}
+                  </p>
                   <v-row>
                     <v-col cols="4">
                       <v-avatar
@@ -55,7 +57,10 @@
                       <p class="overline">Liquidity</p>
                     </v-col>
                     <v-col cols="6">
-                      <p class="overline mb-n2">{{ crypto.stacking }} days</p>
+                      <p v-if="crypto.stacking != null" class="overline mb-n2">
+                        {{ crypto.stacking }} days
+                      </p>
+                      <p v-else class="overline mb-n2">Flexible</p>
                       <p class="overline mb-n2">{{ crypto.apr }} %</p>
                       <p class="overline">{{ crypto.liquidity }} $</p>
                     </v-col>
@@ -139,15 +144,6 @@ export default {
           apr: 5,
           liquidity: 43070500,
           avatar: require("./../../assets/avatar/xrp.jpg"),
-        },
-        {
-          id: 3,
-          name: "Polygon",
-          code: "MATIC",
-          stacking: null,
-          apr: 8,
-          liquidity: 22000500,
-          avatar: require("./../../assets/avatar/matic.jpg"),
         },
       ],
       btn: "Learn More",
