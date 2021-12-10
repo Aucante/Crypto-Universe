@@ -34,6 +34,8 @@
                 <v-list-item
                   v-for="(option, i) in options"
                   :key="i"
+                  router
+                  :to="{ name: option.link }"
                   @click="() => {}"
                 >
                   <v-list-item-title>{{ option.name }}</v-list-item-title>
@@ -53,9 +55,9 @@ export default {
   data() {
     return {
       options: [
-        { name: "Documentation", link: null },
-        { name: "Stacking", link: null },
-        { name: "Contact", link: null },
+        { name: "Home", link: "Home" },
+        { name: "Stacking", link: "Stacking" },
+        { name: "Contact", link: "Contact" },
       ],
     };
   },
