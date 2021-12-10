@@ -7,7 +7,7 @@
         outlined
       >
         <v-card-text class="d-flex justify-center display-3 white--text">
-          <p>DISCOVER CRYPTO-UNIVERSE</p>
+          <p>DISCOVER CRYPTO UNIVERSE</p>
         </v-card-text>
       </v-card>
       <v-card
