@@ -92,15 +92,7 @@
                 <v-row>
                   <v-col cols="8">
                     <v-card-text class="pb-0">
-                      <p class="text-h4 text--primary pb-10">
-                        {{ crypto.name }}
-                      </p>
-                      <p>
-                        late 16th century (as a noun denoting a place where alms
-                        were distributed): from medieval Latin eleemosynarius,
-                        from late Latin eleemosyna ‘alms’, from Greek eleēmosunē
-                        ‘compassion’
-                      </p>
+                      <p class="overline">Available soon</p>
                     </v-card-text>
                     <v-card-actions class="pt-10 ml-n5">
                       <v-btn
